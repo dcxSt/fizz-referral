@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fizz Referral Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f7f7f7;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .code-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .code {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 15px 30px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+        .sign-up-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .sign-up-btn:hover {
+            background-color: #45a049;
+        }
+        .success-message {
+            display: none;
+            color: #4CAF50;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="assets/fizz.png" alt="Fizz Logo" class="logo">
+        <h1>Join Fizz and Save on Your Mobile Plan!</h1>
+        <p>Use my referral code below to get a $35 (CAD) signup bonus when you join Fizz.</p>
+        
+        <div class="code-container">
+            <div class="code" id="referral-code">83AA4</div>
+            <button class="copy-btn" onclick="copyCode()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+        </div>
+        <p id="success-message" class="success-message">Referral code copied to clipboard!</p>
+        
+        <p>Click the button below to sign up with Fizz and enter my referral code.</p>
+        <a href="https://fizz.ca" target="_blank" class="sign-up-btn">Sign Up with Fizz</a>
+    </div>
+
+    <script>
+        function copyCode() {
+            const codeText = document.getElementById('referral-code').innerText;
+            navigator.clipboard.writeText(codeText)
+                .then(() => {
+                    const successMessage = document.getElementById('success-message');
+                    successMessage.style.display = 'block';
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    alert('Failed to copy referral code.');
+                });
+        }
+    </script>
+</body>
+</html>
